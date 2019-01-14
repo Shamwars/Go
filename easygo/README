@@ -1,0 +1,104 @@
+GAME OF EASYGO 
+==============
+
+
+This package contains the java source code and the documentation of the source code.
+
+
+RULES OF THE GAME
+=================
+
+EasyGo is a simplified version of the game of Go. In EasyGo, the first player to capture the opponent's piece wins. In the original game of Go, the players keep on playing, capturing each other's pieces, until no more valid moves are left.
+
+The rules of the game of Go can be learned from the following site :
+
+http://gobase.org/studying/rules/?id=0&ln=uk
+
+The following site also is useful for learning the rules. The idea of EasyGo was taken from this very site.
+
+http://www.sentex.net/~mmcadams/teachgo/
+
+
+In this game, the size of the board is set as 9. This can be easily changed (Change the value of the variable SIZE in Constants.java). For the contest, however, the board size will be fixed at 9.
+
+
+SOURCE FILES
+============
+
+The package contains the following source files
+
+Board.java
+Constants.java
+Game.java
+GraphicGame.java
+Move.java
+NaivePlayer.java
+Player.java
+RandomPlayer.java
+TextGame.java
+
+Check out the API of the source files in the docs/ dierectory. The source code is simple enough, and should not be very difficult to understand.
+
+
+COMPILING THE SOURCE
+===================
+
+Your machine should have the java compiler (jdk-1.3 or above needed to support frames). Compiling all the source files is easy : Simply type javac *.java on the command prompt to compile the files.
+
+
+PLAYING THE GAME
+================
+
+The TextGame class implements a console based game. To run the text based game, type "java TextGame". For changing the players of TextGame, see the section "TESTING YOUR PLAYER"
+
+The GraphicGame class implements a graphic based game of EasyGo. "java GraphicGame" is the command for running the graphics based game. To change the players in this game, see the section "TESTING YOUR PLAYER". 
+
+To simulate the game between two coded players, the class Game can be used. Check out its source code. It can be run by the command "java Game".
+
+
+
+PROGRAMMING YOUR OWN PLAYER
+===========================
+
+To program your own player, you will need to implement Player interface. This interface has only one method - getMove(Board b). Given a board, this function should return a valid move. NaivePlayer and RandomPlayer are two players which implement this class. If you want to create your own player, say MyPlayer, then write the source of your player in MyPlayer.java file. The class MyPlayer should implement Player class. 
+
+
+TESTING YOUR PLAYER
+===================
+
+After writing the source for your program, you should first compile it. For testing, there are three ways to test the player you have programmed :
+
+1. You can use TextGame class to simulate game between two players (or between a programmed player and human player). The players can be specified as command lind argument when executing the program. For example, if your player class is MyPlayer and you want to test against NaivePlayer class, then this can be done by the command "java MyPlayer NaivePlayer". Note that the player name specified will be the player with black pieces.  
+
+2. To check how much time your player is taking, you can use the Game class. It can be invoked in a similar manner as TextGame. For more details, you can check the javadoc/source of these classes.
+
+3. If you want to play a Graphics based game with your coded player, then you can use the GraphicGame class. e.g.typing the command "java GraphicGame MyPlayer" will make the machine use your class for making its move.
+
+
+Note that your player code MUST be compiled (i.e. the class file must exist) before invoking any of the above commands. 
+
+
+RULES OF THE CONTEST
+====================
+
+In the contest, you will have to program your own player(as mentioned above), and submit it to the coordinators. 
+
+The detailed rules will be put up on the Techkriti 2005 website (http://www.techkriti.org/competitions.php?eid=2&page=1). However, the following rules should be noted :
+
+1. Your source code should not attempt to read/write from/to any file, neither it should print anything on the standard outut. Any coded player doing so will be disqualified.
+2. If your program makes any illegal move or throws any exception, it will be immediately disqualified.
+3. Each of the players can take a total of 60000 milliseconds of CPU time for calculating its move (see Game.java files for more details). If, in any game, a player exceeds the time limit, that player will be declared the loser, and the opponent will be declared the winner.
+
+
+BUGS AND ERRATA
+===============
+
+If you find any bug in the source code or documentation, mail to mshashi@iitk.ac.in. 
+
+The GraphicGame class has a few bugs, but for most of the part of your development, it should suffice.  
+
+
+AUTHOR
+======
+
+This game has been written by Shashi Mittal, Junior Undergraduate student, Indian Institute of Technology, Kanpur. He can be reached at mshashi@iitk.ac.in
